@@ -1,0 +1,24 @@
+Hướng dần cấu hình add key Ckeditor auto
+
+Bước 1: Tạo column key_ckeditor (table_setting)
+
+Bước 2: nhúng file initKey.js vào file index.php
+
+Bước 3: Xử lý code file index.php (Admin)
+// query column key_ckfinder trong table_setting
+// bỏ đoạn code bên dưới vào thẻ body
+<body <?=($row_setting['key_ckfinder']=="") ? 'onload="generate();"' : ''?> >
+<input type="hidden" name="licenseType" value="2" id="licenseType">
+<input type="hidden" name="licenseKey" value="<?=$_SERVER["SERVER_NAME"]?>" id="licenseName">
+
+Bước4: Xứ lý code trong file config.php trong folder ckfinder
+// Tìm đến đoạn code
+$config['licenseName'] = '';
+$config['licenseKey']  = '';
+// Thay lại băng
+$config['licenseName'] = '@@name@@';
+$config['licenseKey']  = '@@key@@';
+
+Bước 5: Copy file getKey.php vào folder ajax (Admin)
+
+
