@@ -8,8 +8,10 @@ Bước 3: Xử lý code file index.php (Admin)
 // query column key_ckfinder trong table_setting
 // bỏ đoạn code bên dưới vào thẻ body
 <body <?=($row_setting['key_ckfinder']=="") ? 'onload="generate();"' : ''?> >
+<?php if($row_setting['key_ckfinder']==""){ ?>
 <input type="hidden" name="licenseType" value="2" id="licenseType">
 <input type="hidden" name="licenseKey" value="<?=$_SERVER["SERVER_NAME"]?>" id="licenseName">
+<?php } ?>
 
 Bước4: Xứ lý code trong file config.php trong folder ckfinder
 // Tìm đến đoạn code
